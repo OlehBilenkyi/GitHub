@@ -63,3 +63,37 @@ let str = "Hello World";
 const myArray = str.split(" ");
 
 console.log(myArray);
+
+/*Задача 4: Найти наибольший элемент в массиве
+Описание: Напишите функцию, которая находит наибольший элемент в массиве чисел.
+
+Пример:
+
+Вход: [10, 20, 30, 40, 50]
+Выход: 50
+Подсказка: Используйте метод Math.max в комбинации с оператором распыления (...) или простой цикл для перебора элементов массива.
+
+*/
+const arrow = [1, 11, 22, 55, 100];
+
+function bigNumb(arr) {
+  let num = 0;
+  for (value of arr) {
+    if (num < value) num = value;
+  }
+  return num;
+}
+console.log(bigNumb(arrow));
+
+//Вариант реешинеия №2
+
+const arrow = [1, 10, 11, 22, 55, 100];
+
+function bigNumb(arr) {
+  let num = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (num < arr[i]) num = arr[i];
+  }
+  return num;
+}
+console.log(bigNumb(arrow));

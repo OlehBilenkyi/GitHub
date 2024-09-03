@@ -1,5 +1,9 @@
-let str = "Hello World";
+function mult(num) {
+  if (num % 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-const myArray = str.split(" ");
-
-console.log(myArray);
+console.log(mult(6));
