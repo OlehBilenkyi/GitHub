@@ -1,9 +1,4 @@
-function mult(num) {
-  if (num % 2) {
-    return true;
-  } else {
-    return false;
-  }
+function toUpper(str1,str2) {
+  return `${str1} `+  `${str2}`
 }
-
-console.log(mult(6));
+console.log(toUpper('Oleh','Bilenkyi'));
