@@ -1,10 +1,5 @@
-function contains(arr, num) {
-    return arr.includes(num);
-}
+let str = "Hello World";
 
-// Примеры использования функции
-const numbers = [1, 2, 3, 4, 5];
+const myArray = str.split(" ");
 
-const a = [1,2,3,'g','d']
-
-console.log(contains(a,3))
+console.log(myArray);
