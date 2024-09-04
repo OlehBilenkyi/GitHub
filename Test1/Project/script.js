@@ -1,6 +1,10 @@
-const mas = [1, 2, 3, 7, 6, 5, 4];
-function factorial(str) {
-  return str.slice().sort((a, b) => a - b);
+function check(str) {
+  if (str.length > 5) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-console.log(factorial([1, 2, 3, 7, 6, 5, 4]));
+console.log(check("Oleh Bilenkiy"));
+console.log(check("as"));
