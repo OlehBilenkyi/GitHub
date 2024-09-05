@@ -1,7 +1,8 @@
-let myArr = ["apple", "kiwi", "banana"];
+//let arr = [1, 2, 3, 4, 5, 6,8,10,11];
 
-function myFn(arr) {
-  return arr.sort((a, b) => a.length - b.length);
+function zalupa(str) {
+  
+  return str.toString()
+    
 }
-
-console.log(myFn(myArr));
+console.log(zalupa(123));
