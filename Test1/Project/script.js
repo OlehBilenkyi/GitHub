@@ -1,8 +1,7 @@
-let myArr = [1, 2, 5, 5];
+let myArr = ["apple", "kiwi", "banana"];
 
-function myFn(arr, num) {
-  const newArray = arr.filter((el) => el == num).length;
-  return newArray;
+function myFn(arr) {
+  return arr.sort((a, b) => a.length - b.length);
 }
 
-console.log(myFn(myArr, 5));
+console.log(myFn(myArr));
