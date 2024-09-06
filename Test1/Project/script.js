@@ -1,14 +1,11 @@
-let myArray = [1,2,3];
-let myArray2 = ['qwe','zxc']
-
-function secondLargest(arr1,arr2) {
-  return  [
-      ...arr1, 
-      ...arr2
-      
-    ]
-  
+function countChars(aRRAy) {
+  let newArr = [];
+  for (let el of aRRAy) {
+    if (newArr[el] == index) {
+      newArr += [el]
+    }
+  }
+  return newArr;
 }
-console.log(secondLargest(myArray,myArray2));
 
-
+console.log(countChars([1, 2, 3, 2, 2, 4, 3]));
