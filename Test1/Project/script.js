@@ -1,8 +1,19 @@
-//let arr = [1, 2, 3, 4, 5, 6,8,10,11];
+let myArray = [11,1, 2, 3, 4, 5, 6, 7, 8, 9, 10,12];
 
-function zalupa(num) {
+function secondLargest(arr) {
+  let maxNumber = -Infinity;
+  let secondMaxNumber = -Infinity;
 
-  return num.toString().split("").reduce((xuy, digit)=> xuy + Number(digit), 0) 
-   
+  for (let value of arr) {
+    if (value > maxNumber) {
+      secondMaxNumber = maxNumber; 
+      maxNumber = value;
+    } else if (value > secondMaxNumber && value < maxNumber) { 
+      secondMaxNumber = value;
+    }
+  }
+ return secondMaxNumber; 
 }
-console.log(zalupa(123));
+console.log(secondLargest(myArray));
+
+
