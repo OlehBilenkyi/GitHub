@@ -1,8 +1,15 @@
 function countChars(aRRAy) {
   let newArr = [];
   for (let el of aRRAy) {
-    if (newArr[el] == index) {
-      newArr += [el]
+    let proverkaNaYnikalnost = true;
+    for (let unikalnuyElement of newArr) {
+      if (el === unikalnuyElement) {
+        proverkaNaYnikalnost = false;
+        break;
+      }
+    }
+    if (proverkaNaYnikalnost) {
+      newArr[newArr.length] = el;
     }
   }
   return newArr;
