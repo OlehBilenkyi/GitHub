@@ -1,14 +1,25 @@
-const myArray = [
-  {id:1, name: 'John'},
-  {id:2, name: 'Jane'},
-  {id:3, name: 'Jim'},
- ]
-
- function change(arr) {
-  let newObject = {};
-    for(let i = 0, j = 1; i < arr.length; i++, j++){
-     newObject[j] = arr[i]
+function groupBy(arr, key) {
+  return arr.reduce((acc, obj) => {
+    const value = obj[key];
+    if (!acc[value]) {
+      acc[value] = [];
+    }
+    acc[value].push(obj);
+    return acc;
+  }, {});
 }
-return newObject
- }
- console.log(change(myArray))
+
+console.log(
+  groupBy(
+    [
+      { name: "John", age: 25 },
+      { name: "Jane", age: 30 },
+      { name: "Jim", age: 25 },
+    ],
+    "age"
+  )
+);
+// {
+//   25: [{ name: "John", age: 25 }, { name: "Jim", age: 25 }],
+//   30: [{ name: "Jane", age: 30 }]
+// }
