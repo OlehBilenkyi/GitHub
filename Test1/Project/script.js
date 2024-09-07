@@ -1,25 +1,24 @@
-function groupBy(arr, key) {
-  return arr.reduce((acc, obj) => {
-    const value = obj[key];
-    if (!acc[value]) {
-      acc[value] = [];
-    }
-    acc[value].push(obj);
-    return acc;
-  }, {});
+function calculator(value) {
+  let result = value;
+  return {
+    add: (n) => {
+      result += n;
+      return this;
+    },
+    subtract: (n) => {
+      result -= n;
+      return this;
+    },
+    multiply: (n) => {
+      result *= n;
+      return this;
+    },
+    divide: (n) => {
+      result /= n;
+      return this;
+    },
+    result: () => result,
+  };
 }
 
-console.log(
-  groupBy(
-    [
-      { name: "John", age: 25 },
-      { name: "Jane", age: 30 },
-      { name: "Jim", age: 25 },
-    ],
-    "age"
-  )
-);
-// {
-//   25: [{ name: "John", age: 25 }, { name: "Jim", age: 25 }],
-//   30: [{ name: "Jane", age: 30 }]
-// }
+console.log(calculator(5).add(3).multiply(2).result()); // 16
