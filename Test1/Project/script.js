@@ -1,24 +1,14 @@
-function calculator(value) {
-  let result = value;
-  return {
-    add: (n) => {
-      result += n;
-      return this;
-    },
-    subtract: (n) => {
-      result -= n;
-      return this;
-    },
-    multiply: (n) => {
-      result *= n;
-      return this;
-    },
-    divide: (n) => {
-      result /= n;
-      return this;
-    },
-    result: () => result,
-  };
+let a = {
+  name: "John",
+  details: {
+    age: 25,
+    city: "New York",
+  },
+};
+
+function plas(obj) {
+  let res = JSON.parse(JSON.stringify(obj));
+  return res;
 }
 
-console.log(calculator(5).add(3).multiply(2).result()); // 16
+console.log(plas(a));
