@@ -1,18 +1,13 @@
-function countChars(aRRAy) {
-  let newArr = [];
-  for (let el of aRRAy) {
-    let proverkaNaYnikalnost = true;
-    for (let unikalnuyElement of newArr) {
-      if (el === unikalnuyElement) {
-        proverkaNaYnikalnost = false;
-        break;
-      }
-    }
-    if (proverkaNaYnikalnost) {
-      newArr[newArr.length] = el;
-    }
-  }
-  return newArr;
+myArray = [
+  {name: 'Oli', age: 25},
+  {name: 'Oleg', age: 30},
+  {name: 'Alex', age: 25}
+]
+
+function vozrast(arr,num){
+  
+  const newArray = arr.filter((el)  => el.age == num) 
+  return newArray
 }
 
-console.log(countChars([1, 2, 3, 2, 2, 4, 3]));
+console.log(vozrast(myArray,30))
