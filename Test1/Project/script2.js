@@ -1,4 +1,12 @@
-//Напишите функцию secondLargest(arr), которая принимает массив чисел и возвращает второе наибольшее число в массиве.
-// Не используйте встроенные методы сортировки.
+function filterByAge(arr, ageLimit) {
+  return arr.filter((user) => user.age > ageLimit);
+}
 
-v
+const users = [
+  { name: "John", age: 25 },
+  { name: "Jane", age: 30 },
+  { name: "Jim", age: 20 },
+];
+
+console.log(filterByAge(users, 21));
+// [{ name: "John", age: 25 }, { name: "Jane", age: 30 }]
