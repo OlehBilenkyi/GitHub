@@ -1,14 +1,12 @@
-let a = {
-  name: "John",
-  details: {
-    age: 25,
-    city: "New York",
-  },
-};
+const arr = [10, 20, 30, 40, 50];
 
-function plas(obj) {
-  let res = JSON.parse(JSON.stringify(obj));
-  return res;
+function ind(ar, num) {
+
+  for(let i = 0; i < ar.length; i++) {
+    if (ar[i] === num) {
+      return i
+    }
+  }
+  return "Значение не найдено"; 
 }
-
-console.log(plas(a));
+console.log(ind(arr, 10));
