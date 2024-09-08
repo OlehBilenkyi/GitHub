@@ -1,12 +1,6 @@
-const arr = [10, 20, 30, 40, 50];
+const arr = [10, 20, 30];
 
-function ind(ar, num) {
-
-  for(let i = 0; i < ar.length; i++) {
-    if (ar[i] === num) {
-      return i
-    }
-  }
-  return "Значение не найдено"; 
+function jopa(ob) {
+  ob.forEach((value) => console.log(value));
 }
-console.log(ind(arr, 10));
+jopa(arr);
