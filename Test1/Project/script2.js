@@ -1,13 +1,16 @@
-/*Задача 2: Найти ключ по значению в объекте
-Описание: Напишите функцию, которая принимает объект и значение, и возвращает первый ключ, 
-который соответствует этому значению. Если ключ не найден, функция должна вернуть сообщение "Значение не найдено".*/
-
-const user = { name: 'John', age: 25, city: 'New York' };
-
-function findKeyByValue(obj, value){
-for( kl in obj ){
-  if(value == obj[kl]) return kl 
-}// 'John' == 'John'         name
+function sortByKeys(arr, key1, key2) {
+  return arr.slice().sort((a, b) => {
+    if (a[key1] === b[key1]) {
+      return a[key2] > b[key2] ? 1 : -1;
+    }
+    return a[key1] > b[key1] ? 1 : -1;
+  });
 }
 
-console.log(findKeyByValue(user, 'New York'));
+const users = [
+  { name: "John", age: 25, city: "N York" },
+  { name: "Jane", age: 30, city: "London" },
+  { name: "Jim", age: 25, city: "Ap" },
+];
+
+console.log(sortByKeys(users, "age", "city"));
