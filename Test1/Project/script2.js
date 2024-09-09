@@ -1,16 +1,17 @@
-function sortByKeys(arr, key1, key2) {
-  return arr.slice().sort((a, b) => {
-    if (a[key1] === b[key1]) {
-      return a[key2] > b[key2] ? 1 : -1;
+function hasKey(obj,stringKey) {
+  for (key in obj){
+    if(key == stringKey){
+      return true 
     }
-    return a[key1] > b[key1] ? 1 : -1;
-  });
+  }return false
 }
 
-const users = [
-  { name: "John", age: 25, city: "N York" },
-  { name: "Jane", age: 30, city: "London" },
-  { name: "Jim", age: 25, city: "Ap" },
-];
+const obj = { 
+name: 'John',
+age: 25,
+city: 'New York',
+name1: 'John',
+color: 'New York'
+};
 
-console.log(sortByKeys(users, "age", "city"));
+console.log(hasKey(obj, 'color'));
