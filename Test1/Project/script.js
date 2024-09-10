@@ -1,29 +1,17 @@
-export default class XUY {
-  constructor() {
-    this.items = [];
-  }
+/*Задача 1: Поиск объекта по значению в массиве объектов*/
+const user = [
+  { name: "John", age: 25 },
+  { name: "Jane", age: 30 },
+  { name: "Jim", age: 20 },
+];
 
-  push(item) {
-    this.items.push(item);
-    return this.items.length;
-  }
-
-  pop() {
-    return this.items.pop();
-  }
-
-  isEmpty() {
-    return this.items.length === 0;
-  }
-
-  peek() {
-    return this.items[this.items.length - 1];
-  }
-
-  length() {
-    return this.items.length;
+function findKeyByValue(array, value) {
+  for (const obj of array) {
+    for (kl in obj) {
+      if (value == obj[kl]);
+    }
+    return obj;
   }
 }
-const zalupa = new XUY();
 
-zalupa.length
+console.log(findKeyByValue(user, 20));
