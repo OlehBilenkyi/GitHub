@@ -1,17 +1,11 @@
-function hasKey(obj,stringKey) {
-  for (key in obj){
-    if(key == stringKey){
-      return true 
+function mean(array) {
+  let sum = 0;
+  for (let num of array) {
+    if (array.length > 0) {
+      sum += num;
     }
-  }return false
+  }
+  return sum / array.length;
 }
 
-const obj = { 
-name: 'John',
-age: 25,
-city: 'New York',
-name1: 'John',
-color: 'New York'
-};
-
-console.log(hasKey(obj, 'color'));
+console.log(mean([]));
