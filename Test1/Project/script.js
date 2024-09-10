@@ -4,14 +4,16 @@ const user = [
   { name: "Jane", age: 30 },
   { name: "Jim", age: 20 },
 ];
+const user1 = [
+  { id: 1, name: "John" },
+  { id: 2, name: "Jane" },
+];
 
-function findKeyByValue(array, value) {
-  for (const obj of array) {
-    for (kl in obj) {
-      if (value == obj[kl]);
-    }
-    return obj;
-  }
+function findKeyByValue(arr, arr2) {
+  let newArr = {};
+  arr.forEach((obj) => (newArr[obj.name] = { ...obj }));
+  arr2.forEach((obj) => (newArr[obj.name] = { ...newArr[obj.name], ...obj }));
+  return Object.values(newArr);
 }
 
-console.log(findKeyByValue(user, 20));
+console.log(findKeyByValue(user, user1));
