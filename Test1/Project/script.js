@@ -1,4 +1,4 @@
-export default class Stack {
+export default class XUY {
   constructor() {
     this.items = [];
   }
@@ -24,4 +24,6 @@ export default class Stack {
     return this.items.length;
   }
 }
-const stack = new Stack();
+const zalupa = new XUY();
+
+zalupa.length
