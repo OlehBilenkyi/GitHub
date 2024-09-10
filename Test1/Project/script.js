@@ -1,7 +1,11 @@
-function hasKey(array) {
-  return array.every((el) => Boolean(el));
+function mean(array) {
+  let sum = 0;
+  for (let num of array) {
+    if (array.length > 0) {
+      sum += num;
+    }
+  }
+  return sum / array.length;
 }
 
-let allTrue = [1, true, 'string', {a: 'asd'}];
-
-console.log(hasKey(allTrue)); // true
+console.log(mean([]));
