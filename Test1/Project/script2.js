@@ -1,11 +1,29 @@
-function mean(array) {
-  let sum = 0;
-  for (let num of array) {
-    if (array.length > 0) {
-      sum += num;
-    }
+export default class XUY {
+  constructor() {
+    this.items = [];
   }
-  return sum / array.length;
-}
 
-console.log(mean([]));
+  push(item) {
+    this.items.push(item);
+    return this.items.length;
+  }
+
+  pop() {
+    return this.items.pop();
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+
+  length() {
+    return this.items.length;
+  }
+}
+const zalupa = new XUY();
+
+zalupa.length
