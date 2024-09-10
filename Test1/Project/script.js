@@ -1,7 +1,29 @@
-function hasKey(array) {
-  return array.every((el) => Boolean(el));
+export default class XUY {
+  constructor() {
+    this.items = [];
+  }
+
+  push(item) {
+    this.items.push(item);
+    return this.items.length;
+  }
+
+  pop() {
+    return this.items.pop();
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+
+  length() {
+    return this.items.length;
+  }
 }
+const zalupa = new XUY();
 
-let allTrue = [1, true, 'string', {a: 'asd'}];
-
-console.log(hasKey(allTrue)); // true
+zalupa.length
