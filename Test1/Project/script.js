@@ -3,10 +3,16 @@ const user = [
   { name: "John", age: 25 },
   { name: "Jane", age: 30 },
   { name: "Jim", age: 20 },
+  { name: "Sas", age: 25 },
+  { name: "Vcf", age: 30 },
+  { name: "ZXc", age: 20 },
 ];
 const user1 = [
   { id: 1, name: "John" },
   { id: 2, name: "Jane" },
+  { name: "DSa", age: 25 },
+  { name: "zxc", age: 30 },
+  { name: "thb", age: 20 },
 ];
 
 function findKeyByValue(arr, arr2) {
