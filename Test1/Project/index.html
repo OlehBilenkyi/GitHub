@@ -1,36 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Форма регистрации</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Регистрация</h1>
-      <form id="registrationForm">
-        <label for="username">Имя пользователя:</label>
-        <input type="text" id="username" name="username" />
-        <span id="usernameError" class="error"></span>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о клиенте</title>
+</head>
+<body>
+    <h1>Информация о клиенте</h1>
+    <p>Имя клиента: <span id="clientName"></span></p>
+    <p>Email: <span id="clientEmail"></span></p>
+    <p>Кредитный рейтинг: <span id="creditScore"></span></p>
+    <p>Сумма займа: <span id="loanAmount"></span></p>
+    <p>Оценочная стоимость: <span id="appraisedValue"></span></p>
+    <p>Штат: <span id="state"></span></p>
 
-        <label for="email">Электронная почта:</label>
-        <input type="email" id="email" name="email" />
-        <span id="emailError" class="error"></span>
-
-        <label for="password">Пароль:</label>
-        <input type="password" id="password" name="password" />
-        <span id="passwordError" class="error"></span>
-
-        <label for="confirmPassword">Подтверждение пароля:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" />
-        <span id="confirmPasswordError" class="error"></span>
-
-        <button type="submit">Зарегистрироваться</button>
-      </form>
-      <p id="successMessage"></p>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+    <script src="script.js"></script> <!-- Подключаем ваш скрипт -->
+</body>
 </html>

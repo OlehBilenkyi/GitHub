@@ -1,60 +1,45 @@
-const gameBoard = document.querySelectorAll('.cell');
-const statusText = document.getElementById('status');
-let currentPlayer = 'X';
-let board = ['', '', '', '', '', '', '', '', ''];
-let isGameActive = true;
+// Функция для получения параметров из URL
+function getParamsFromURL() {
+  const params = new URLSearchParams(window.location.search);
 
-const winningCombinations = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
+  // Извлекаем необходимые параметры
+  const rateTrackerTypeId = params.get("rateTrackerTypeId");
+  const loanOfficerId = params.get("loanOfficerId");
+  const email = decodeURIComponent(params.get("email"));
+  const firstName = params.get("firstName");
+  const lastName = params.get("lastName");
+  const creditScore = params.get("creditScore");
+  const loanAmount = params.get("loanAmount");
+  const loanPurpose = params.get("loanPurpose");
+  const appraisedValue = params.get("appraisedValue");
+  const state = params.get("state");
 
-// Обработка кликов на клетке
-gameBoard.forEach(cell => {
-    cell.addEventListener('click', () => {
-        const index = cell.getAttribute('data-index');
-
-        if (board[index] === '' && isGameActive) {
-            board[index] = currentPlayer;
-            cell.textContent = currentPlayer;
-            checkWinner();
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Меняем игрока
-        }
-    });
-});
-
-// Проверка победителя
-function checkWinner() {
-    let roundWon = false;
-
-    for (let i = 0; i < winningCombinations.length; i++) {
-        const [a, b, c] = winningCombinations[i];
-        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-            roundWon = true;
-            break;
-        }
-    }
-
-    if (roundWon) {
-        statusText.textContent = `${currentPlayer} победил!`;
-        isGameActive = false;
-    } else if (!board.includes('')) {
-        statusText.textContent = 'Ничья!';
-        isGameActive = false;
-    }
+  // Пример заполнения полей на странице
+  if (firstName && lastName) {
+    document.getElementById(
+      "clientName"
+    ).innerText = `${firstName} ${lastName}`;
+  }
+  if (email) {
+    document.getElementById("clientEmail").innerText = email;
+  }
+  if (creditScore) {
+    document.getElementById("creditScore").innerText = creditScore;
+  }
+  if (loanAmount) {
+    document.getElementById("loanAmount").innerText = `$${parseFloat(
+      loanAmount
+    ).toLocaleString()}`;
+  }
+  if (appraisedValue) {
+    document.getElementById("appraisedValue").innerText = `$${parseFloat(
+      appraisedValue
+    ).toLocaleString()}`;
+  }
+  if (state) {
+    document.getElementById("state").innerText = state;
+  }
 }
 
-// Сброс игры
-function resetGame() {
-    board = ['', '', '', '', '', '', '', '', ''];
-    gameBoard.forEach(cell => (cell.textContent = ''));
-    currentPlayer = 'X';
-    isGameActive = true;
-    statusText.textContent = '';
-}
+// Вызываем функцию при загрузке страницы
+window.onload = getParamsFromURL;
