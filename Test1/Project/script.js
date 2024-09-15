@@ -1,45 +1,26 @@
-// Функция для получения параметров из URL
-function getParamsFromURL() {
-  const params = new URLSearchParams(window.location.search);
+'''/**Объединение объектов с суммированием значений: Реализуй функцию mergeObjects(arr), которая принимает массив объектов с одинаковыми ключами,
+   а значениями могут быть числа. Необходимо объединить объекты так, чтобы значения числовых полей суммировались. /
+const objects = [
+    { apples: 5, oranges: 10 },
+    { apples: 3, oranges: 8 },
+    { apples: 7, bananas: 5 }
+];
 
-  // Извлекаем необходимые параметры
-  const rateTrackerTypeId = params.get("rateTrackerTypeId");
-  const loanOfficerId = params.get("loanOfficerId");
-  const email = decodeURIComponent(params.get("email"));
-  const firstName = params.get("firstName");
-  const lastName = params.get("lastName");
-  const creditScore = params.get("creditScore");
-  const loanAmount = params.get("loanAmount");
-  const loanPurpose = params.get("loanPurpose");
-  const appraisedValue = params.get("appraisedValue");
-  const state = params.get("state");
-
-  // Пример заполнения полей на странице
-  if (firstName && lastName) {
-    document.getElementById(
-      "clientName"
-    ).innerText = `${firstName} ${lastName}`;
-  }
-  if (email) {
-    document.getElementById("clientEmail").innerText = email;
-  }
-  if (creditScore) {
-    document.getElementById("creditScore").innerText = creditScore;
-  }
-  if (loanAmount) {
-    document.getElementById("loanAmount").innerText = `$${parseFloat(
-      loanAmount
-    ).toLocaleString()}`;
-  }
-  if (appraisedValue) {
-    document.getElementById("appraisedValue").innerText = `$${parseFloat(
-      appraisedValue
-    ).toLocaleString()}`;
-  }
-  if (state) {
-    document.getElementById("state").innerText = state;
-  }
+function mergeObjects(arr) {
+    let newObj = {};
+    for(let obj of arr ){  
+        for(let key in obj ){
+            if(newObj[key]){   //      Если ключ уже существует в новом объекте (newObj[key]), это означает, что он уже встречался ранее, и его значение нужно обновить, прибавив текущее значение.
+                newObj[key] += obj[key];
+            } else {
+                newObj[key] = obj[key]
+            }
+        }
+    }
+return newObj
 }
 
-// Вызываем функцию при загрузке страницы
-window.onload = getParamsFromURL;
+
+console.log(mergeObjects(objects));
+
+// { apples: 15, oranges: 18, bananas: 5 }'''
