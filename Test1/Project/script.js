@@ -1,29 +1,45 @@
-export default class XUY {
-  constructor() {
-    this.items = [];
-  }
+// Функция для получения параметров из URL
+function getParamsFromURL() {
+  const params = new URLSearchParams(window.location.search);
 
-  push(item) {
-    this.items.push(item);
-    return this.items.length;
-  }
+  // Извлекаем необходимые параметры
+  const rateTrackerTypeId = params.get("rateTrackerTypeId");
+  const loanOfficerId = params.get("loanOfficerId");
+  const email = decodeURIComponent(params.get("email"));
+  const firstName = params.get("firstName");
+  const lastName = params.get("lastName");
+  const creditScore = params.get("creditScore");
+  const loanAmount = params.get("loanAmount");
+  const loanPurpose = params.get("loanPurpose");
+  const appraisedValue = params.get("appraisedValue");
+  const state = params.get("state");
 
-  pop() {
-    return this.items.pop();
+  // Пример заполнения полей на странице
+  if (firstName && lastName) {
+    document.getElementById(
+      "clientName"
+    ).innerText = `${firstName} ${lastName}`;
   }
-
-  isEmpty() {
-    return this.items.length === 0;
+  if (email) {
+    document.getElementById("clientEmail").innerText = email;
   }
-
-  peek() {
-    return this.items[this.items.length - 1];
+  if (creditScore) {
+    document.getElementById("creditScore").innerText = creditScore;
   }
-
-  length() {
-    return this.items.length;
+  if (loanAmount) {
+    document.getElementById("loanAmount").innerText = `$${parseFloat(
+      loanAmount
+    ).toLocaleString()}`;
+  }
+  if (appraisedValue) {
+    document.getElementById("appraisedValue").innerText = `$${parseFloat(
+      appraisedValue
+    ).toLocaleString()}`;
+  }
+  if (state) {
+    document.getElementById("state").innerText = state;
   }
 }
-const zalupa = new XUY();
 
-zalupa.length
+// Вызываем функцию при загрузке страницы
+window.onload = getParamsFromURL;
