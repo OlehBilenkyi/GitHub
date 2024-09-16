@@ -1,32 +1,30 @@
-/**Алгоритм сортировки объектов по вложенным ключам: Напиши функцию sortByNestedKey(arr, key), 
- * которая сортирует массив объектов по вложенному ключу.
- *  Например, для объекта вида { name: 'Alice', address: { city: 'NY' } }, сортировать по address.city. */
+// 2. Сортировка по глубоко вложенному ключу (3 уровня)
+// Есть массив данных о заказах. Отсортируй его по количеству товаров, которые находятся на третьем уровне вложенности: order.items.quantity.
 
 
-const data = [
-  { name: 'Alice', address: { city: 'Boston' } },
-  { name: 'Bob', address: { city: 'Chicago' } },
-  { name: 'Charlie', address: { city: 'Austin' } }
+const orders = [
+  { id: 1, order: { items: { quantity: 5, name: 'Apple' } } },
+  { id: 2, order: { items: { quantity: 2, name: 'Banana' } } },
+  { id: 3, order: { items: { quantity: 10, name: 'Orange' } } }
 ];
 
-function sortByNestedKey(arr, key) {
-  const keys = key.split('.'); // Разбиваем ключ по точке
-  
-  return arr.sort((a, b) => {
-    let aValue = a;
-    let bValue = b;
+function sortByNestedKey(arr,key){
+const keys = key.split('.');
 
-    // Проходим по каждому уровню вложенности
-    for (let k of keys) {
-      aValue = aValue[k];
-      bValue = bValue[k];
-    }
+return arr.sort((a, b) => {
+  let aValue = a;
+  let bValue = b;
 
-    // Сравнение строк (в данном случае — названий городов)
-    if (aValue < bValue) return -1;
-    if (aValue > bValue) return 1;
-    return 0;
-  });
+for(let k of keys){
+  aValue = aValue[k] // на первой итации { items: { quantity: 5, name: 'Apple' } };   //{ quantity: 5, name: 'Apple' }
+  bValue = bValue[k] // на первой итации { items: { quantity: 2, name: 'Banana' } };  //{ quantity: 2, name: 'Banana' }
 }
+if(aValue < bValue) return -1;
+if(aValue > bValue) return 1;
+return 0;
+})
+}
+const sortedOrders = sortByNestedKey(orders, 'order.items.quantity');
 
-console.log(sortByNestedKey(data, 'address.city'));
+
+console.log(JSON.stringify(sortedOrders,null,1));
