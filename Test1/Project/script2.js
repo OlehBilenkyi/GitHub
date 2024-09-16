@@ -1,26 +1,32 @@
-/**Объединение объектов с суммированием значений: Реализуй функцию mergeObjects(arr), которая принимает массив объектов с одинаковыми ключами,
- *  а значениями могут быть числа. Необходимо объединить объекты так, чтобы значения числовых полей суммировались. */
-const objects = [
-  { apples: 5, oranges: 10 },
-  { apples: 3, oranges: 8 },
-  { apples: 7, bananas: 5 }
+/**Алгоритм сортировки объектов по вложенным ключам: Напиши функцию sortByNestedKey(arr, key), 
+ * которая сортирует массив объектов по вложенному ключу.
+ *  Например, для объекта вида { name: 'Alice', address: { city: 'NY' } }, сортировать по address.city. */
+
+
+const data = [
+  { name: 'Alice', address: { city: 'Boston' } },
+  { name: 'Bob', address: { city: 'Chicago' } },
+  { name: 'Charlie', address: { city: 'Austin' } }
 ];
 
-function mergeObjects(arr) {
-  let newObj = {};
-  for(let obj of arr ){  
-      for(let key in obj ){
-          if(newObj[key]){   //      Если ключ уже существует в новом объекте (newObj[key]), это означает, что он уже встречался ранее, и его значение нужно обновить, прибавив текущее значение.
-              newObj[key] += obj[key];
-          } else {
-              newObj[key] = obj[key]
-          }
-      }
-  }
-return newObj
+function sortByNestedKey(arr, key) {
+  const keys = key.split('.'); // Разбиваем ключ по точке
+  
+  return arr.sort((a, b) => {
+    let aValue = a;
+    let bValue = b;
+
+    // Проходим по каждому уровню вложенности
+    for (let k of keys) {
+      aValue = aValue[k];
+      bValue = bValue[k];
+    }
+
+    // Сравнение строк (в данном случае — названий городов)
+    if (aValue < bValue) return -1;
+    if (aValue > bValue) return 1;
+    return 0;
+  });
 }
 
-
-console.log(mergeObjects(objects));
-
-// { apples: 15, oranges: 18, bananas: 5 }
+console.log(sortByNestedKey(data, 'address.city'));
