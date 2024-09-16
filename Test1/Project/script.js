@@ -1,26 +1,33 @@
-'''/**Объединение объектов с суммированием значений: Реализуй функцию mergeObjects(arr), которая принимает массив объектов с одинаковыми ключами,
-   а значениями могут быть числа. Необходимо объединить объекты так, чтобы значения числовых полей суммировались. /
-const objects = [
-    { apples: 5, oranges: 10 },
-    { apples: 3, oranges: 8 },
-    { apples: 7, bananas: 5 }
-];
+function sortByNestedLikes(arr, key) {
+  // Разбиваем ключ по точкам на массив
+  const keys = key.split('.');
 
-function mergeObjects(arr) {
-    let newObj = {};
-    for(let obj of arr ){  
-        for(let key in obj ){
-            if(newObj[key]){   //      Если ключ уже существует в новом объекте (newObj[key]), это означает, что он уже встречался ранее, и его значение нужно обновить, прибавив текущее значение.
-                newObj[key] += obj[key];
-            } else {
-                newObj[key] = obj[key]
-            }
-        }
+  // Сортируем массив с помощью функции сравнения
+  return arr.sort((a, b) => {
+    // Изначально aValue и bValue — это сами объекты
+    let aValue = a;
+    let bValue = b;
+
+    // Проходим по каждому уровню вложенности ключа
+    for (let k of keys) {
+      aValue = aValue[k];
+      bValue = bValue[k];
     }
-return newObj
+
+    // Сравнение значений
+    if (aValue < bValue) return -1; // Если a меньше b
+    if (aValue > bValue) return 1;  // Если a больше b
+    return 0;                        // Если значения равны
+  });
 }
 
+const posts = [
+  { title: 'Post 1', stats: { likes: 120 } },
+  { title: 'Post 2', stats: { likes: 80 } },
+  { title: 'Post 3', stats: { likes: 200 } }
+];
 
-console.log(mergeObjects(objects));
+// Пример использования функции
+const sortedPosts = sortByNestedLikes(posts, 'stats.likes');
 
-// { apples: 15, oranges: 18, bananas: 5 }'''
+console.log(sortedPosts);
