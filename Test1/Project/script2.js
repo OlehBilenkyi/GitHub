@@ -1,30 +1,45 @@
-// 2. Сортировка по глубоко вложенному ключу (3 уровня)
-// Есть массив данных о заказах. Отсортируй его по количеству товаров, которые находятся на третьем уровне вложенности: order.items.quantity.
+// : Пересечение массивов
+// Напишите функцию intersection(arr1, arr2), которая принимает два массива и возвращает новый массив,
+//  содержащий только те элементы, которые встречаются в обоих массивах.
 
-
-const orders = [
-  { id: 1, order: { items: { quantity: 5, name: 'Apple' } } },
-  { id: 2, order: { items: { quantity: 2, name: 'Banana' } } },
-  { id: 3, order: { items: { quantity: 10, name: 'Orange' } } }
-];
-
-function sortByNestedKey(arr,key){
-const keys = key.split('.');
-
-return arr.sort((a, b) => {
-  let aValue = a;
-  let bValue = b;
-
-for(let k of keys){
-  aValue = aValue[k] // на первой итации { items: { quantity: 5, name: 'Apple' } };   //{ quantity: 5, name: 'Apple' }
-  bValue = bValue[k] // на первой итации { items: { quantity: 2, name: 'Banana' } };  //{ quantity: 2, name: 'Banana' }
+function intersection(arr1, arr2) {
+  return arr1.filter(el => arr2.includes(el));
 }
-if(aValue < bValue) return -1;
-if(aValue > bValue) return 1;
-return 0;
-})
+
+console.log(intersection([1, 2, 3, 4], [3, 4, 5, 6])); // [3, 4]
+-----------------------------
+
+function intersection(arr1, arr2) {
+  return arr1.filter(el => arr2.indexOf(el) !== -1);
 }
-const sortedOrders = sortByNestedKey(orders, 'order.items.quantity');
 
+console.log(intersection([1, 2, 3, 4], [3, 4, 5, 6])); // [3, 4]
+----------------------------------------
 
-console.log(JSON.stringify(sortedOrders,null,1));
+function intersection(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    let found = false;
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        found = true;
+        break;
+      }
+    }
+    if (found) {
+      result.push(arr1[i]);
+    }
+  }
+  return result;
+}
+
+console.log(intersection([1, 2, 3, 4], [3, 4, 5, 6])); // [3, 4]
+---------------------------------------------
+
+function intersection(arr1, arr2) {
+  let set2 = new Set(arr2);
+  return arr1.filter(el => set2.has(el));
+}
+
+console.log(intersection([1, 2, 3, 4], [3, 4, 5, 6])); // [3, 4]
+--------------------------------------------
