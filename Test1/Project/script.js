@@ -1,11 +1,12 @@
-function chain(fns) {
-  return function (arg) {
-    return fns.reduce((result, fn) => fn(result), arg);
-  };
+// Замыкание для счетчика
+// Напишите функцию createCounter(), которая возвращает функцию-счетчик.
+// Каждый вызов этой функции увеличивает значение счетчика на 1.
+
+function createCounter() {
+  let creat = 0;
+  if (createCounter) {
+    creat += 1;
+  }
+  return creat;
 }
-
-const double = (x) => x * 2;
-const square = (x) => x ** 2;
-
-const chainedFunction = chain([double, square]);
-console.log(chainedFunction(3)); // 36 (сначала удвоение, затем возведение в квадрат)
+console.log(createCounter());
