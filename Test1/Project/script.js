@@ -1,12 +1,9 @@
-// Замыкание для счетчика
-// Напишите функцию createCounter(), которая возвращает функцию-счетчик.
-// Каждый вызов этой функции увеличивает значение счетчика на 1.
+// 1. Создание объекта
+// Создай объект person, у которого будут ключи name,
+//  age и city. Выведи значение всех ключей в консоль.
 
-function createCounter() {
-  let creat = 0;
-  if (createCounter) {
-    creat += 1;
-  }
-  return creat;
-}
-console.log(createCounter());
+// javascript
+// Копировать код
+// Пример объекта
+const person = { name: "Alice", age: 25, city: "London" };
+console.log(person.name); // "Alice"
