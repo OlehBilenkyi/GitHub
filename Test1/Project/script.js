@@ -1,9 +1,14 @@
-// 1. Создание объекта
-// Создай объект person, у которого будут ключи name,
-//  age и city. Выведи значение всех ключей в консоль.
+// Напиши функцию removeProperty, 
+// которая принимает объект и массив строк (ключей),
+//  и возвращает новый объект без этих ключей.
 
-// javascript
-// Копировать код
-// Пример объекта
-const person = { name: "Alice", age: 25, city: "London" };
-console.log(person.name); // "Alice"
+
+const person = { name: "Alice", age: 25, city: "London", job: "developer" };
+
+function removeProperty (nameObj,filtrKey){
+  let newObj = newObj
+  filtrKey.forEach(element => delete newObj[element]);
+  return newObj
+}
+
+console.log(removeProperty(person, ['age', 'job']));
